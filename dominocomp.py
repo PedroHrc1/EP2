@@ -14,7 +14,7 @@ print (BLUE + 'Bem-vindo ao Jogo de Dominó P&R, onde a sua experiência será e
 #Comeco do Jogo
 comeca = input(CYAN + 'Você quer Joga[S/N]:' + RESET)
 
-com = True
+com =True
 
 while com:
     if comeca == 'N':
@@ -45,9 +45,7 @@ while rodando:
         print(inicia['jogadores'][i])
         print (posicoes_possiveis(inicia['mesa'],inicia['jogadores'][i]))
         colocando = int(input('Qual peça deseja colocar?:'))
-        inicia['mesa'].append(inicia['jogadores'][i].index(colocando))
-        print (inicia['mesa'])
-        rodando = False
+        
 
 
 
