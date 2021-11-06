@@ -69,10 +69,8 @@ def posicoes_possiveis(mesa, pecas):
             for p in pecas:
                 if m[0] == p[1] or m[0] == p[0]:
                     p_poss.append(pecas.index(p))
-                    print (p_poss)
                 elif m[1] == p[1] or m[1] == p[0]:
                     p_poss.append(pecas.index(p))
-                    print (p_poss)
 
     if len(mesa) > 1:
         w = len(mesa) - 1
@@ -117,3 +115,13 @@ def adiciona_na_mesa(peca, mesa):
     if ultima_peca[1] == peca[0]:
         mesa.append(peca)
         return mesa    
+
+#Setima Funcao
+
+def pegando_do_monte(monte, jogador):
+    if monte == 0:
+        return ('O monte esta vazio, passasa a vez')
+    else:
+        jogador.append(monte[0])
+        del monte[0]
+    return jogador
