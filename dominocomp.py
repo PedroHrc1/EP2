@@ -29,22 +29,74 @@ while com:
 
 con = True
 while con:
-    x = int(input('Quantos Jogadores[2-4]:'))
-    if x not in range(2,4):
+    n_player = int(input('Quantos Jogadores[2-4]:'))
+    if n_player not in range(2,4):
         print(RED + 'NÚMERO INVÁLIDO' + RESET)
-        x = int(input('Quantos Jogadores[2-4]:'))
+        n_player = int(input('Quantos Jogadores[2-4]:'))
     else:
-        inicia = inicia_jogo(x, pecas_c)
+        inicia = inicia_jogo(n_player, pecas_c)
         con = False
 
 #Jogo Iniciado
 rodando = True
 i = 0
 while rodando:
+    emp = 0
+    mesa = inicia['mesa']
+    player = inicia['jogadores']
+    monte = inicia['monte']
     if i == 0:
-        print(inicia['jogadores'][i])
-        print (posicoes_possiveis(inicia['mesa'],inicia['jogadores'][i]))
-        colocando = int(input('Qual peça deseja colocar?:'))
+        #jogador 1(Jogador IRL) - falta deixar bonito
+        print(player[i])
+        joga_0 = posicoes_possiveis(mesa,player[i])
+        print (joga_0)
+#falta fazer a parte do monte
+        if len(joga_0) == 0:
+            pegando_do_monte(monte, player[i])
+            print(player[i])
+            joga_0 = posicoes_possiveis(mesa,player[i])
+            print (joga_0)
+
+        if len(joga_0) == 0:
+            print(RED + 'Você não tem peças para jogar' + RESET)
+            i += 1
+            emp += 1
+        else:
+            col = int(input('Qual peça deseja colocar?: '))
+            peca = player[i][col]
+            adiciona_na_mesa(peca, mesa)
+            print(mesa)
+            i += 1
+
+    while i < n_player:
+        poss_bot = posicoes_possiveis(mesa,player[i])
+        if len(poss_bot) == 0:
+            pegando_do_monte(monte, player[i])
+            poss_bot = posicoes_possiveis(mesa,player[i])
+        
+        if len(poss_bot) == 0:
+            i += 1
+        else:
+            peca = player[i][col]
+            adiciona_na_mesa(peca, mesa)
+            print(mesa)
+            i += 1
+
+
+
+        p_q_joga = random.randint(0 , len(poss_bot)-1)
+        
+        i += 1
+
+    rodando = False
+
+
+        
+        
+        
+
+
+
         
 
 
