@@ -82,7 +82,10 @@ while rodando:
             adiciona_na_mesa(peca, mesa)
             print(mesa)
             i += 1
-            
+    ganhou = verifica_ganhador(player)
+    if ganhou != -1:
+        print(f"jogador{ganhou+1}ganhou o jogo")
+         
 
 
     rodando = False
