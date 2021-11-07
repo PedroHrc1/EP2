@@ -77,16 +77,13 @@ while rodando:
         if len(poss_bot) == 0:
             i += 1
         else:
-            peca = player[i][col]
+            p_q_joga = random.randint(0 , len(poss_bot)-1)
+            peca = player[i][p_q_joga]
             adiciona_na_mesa(peca, mesa)
             print(mesa)
             i += 1
+            
 
-
-
-        p_q_joga = random.randint(0 , len(poss_bot)-1)
-        
-        i += 1
 
     rodando = False
 
