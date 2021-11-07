@@ -76,6 +76,7 @@ while rodando:
         
         if len(poss_bot) == 0:
             i += 1
+            emp += 1
         else:
             p_q_joga = random.randint(0 , len(poss_bot)-1)
             peca = player[i][p_q_joga]
@@ -85,10 +86,26 @@ while rodando:
     ganhou = verifica_ganhador(player)
     if ganhou != -1:
         print(f"jogador{ganhou+1}ganhou o jogo")
-         
+        rodando = False
+
+    if emp == n_player:
+        y = 0
+        
+        soma = soma_pecas (player[y])
+        n = soma
+        y += 1
+        while y < n_player:
+            soma = soma_pecas (player[y])
+            
+            if n == soma:
+                y += 1
+            else: 
+                if soma < y:
+                    n = soma 
+                    y += 1
 
 
-    rodando = False
+    
 
 
         
