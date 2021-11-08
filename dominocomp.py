@@ -99,17 +99,15 @@ while jogo:
 
         if emp == n_player:
             y = 0
-            
             soma = soma_pecas (player[y])
             n = soma
             y += 1
             while y < n_player:
                 soma = soma_pecas (player[y])
-                print(f'Jogador {y+1} tem {soma} pontos en sua mao')
                 if n == soma:
                     y += 1
                 else: 
-                    if soma < y:
+                    if soma < n:
                         n = soma
                         x = (f'Jogador {y + 1} ganhou com {n} pontos!')
                         y += 1
